@@ -2,11 +2,19 @@ const userInputField = document.getElementById("wordInput");
 const checkBtn = document.getElementById("checkBtn");
 const resultText = document.getElementById("resultText");
 
+function hasNumbers(string) {
+    return /\d/.test(string);
+}
+
 function checkPalindrome(string) {
     string = userInputField.value.trim().toLowerCase();
     
     if(string === "") {
         resultText.textContent = "Please type in a Word!";
+        return;
+    }
+    else if(hasNumbers(string)) {
+        resultText.textContent = "Please type in a Word without Numbers!";
         return;
     }
 
